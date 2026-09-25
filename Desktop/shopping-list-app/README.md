@@ -12,24 +12,6 @@
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?logo=reactrouter&logoColor=white)
 
----
-
-## 📑 Table of Contents
-
-1. [The Idea](#-the-idea)
-2. [Requirements Checklist](#-requirements-checklist)
-3. [Features](#-features)
-4. [Tech Stack](#-tech-stack)
-5. [Redux Breakdown](#-redux-breakdown)
-6. [App Flow](#-app-flow)
-7. [Routing & Access](#-routing--access)
-8. [Data Model](#-data-model)
-9. [Project Structure](#-project-structure)
-10. [Getting Started](#-getting-started)
-11. [Design](#-design)
-12. [Stretch Goals](#-stretch-goals)
-
----
 
 ## 💡 The Idea
 
@@ -149,30 +131,6 @@ Every async thunk follows the same three states, handled in `extraReducers`:
 
 ---
 
-## 🔄 App Flow
-
-```mermaid
-flowchart LR
-    A[Component] -->|dispatch thunk| B[createAsyncThunk]
-    B -->|fetch / POST / PATCH / DELETE| C[(json-server)]
-    C -->|response| B
-    B -->|pending / fulfilled / rejected| D[Slice reducer]
-    D -->|new state| E[Redux store]
-    E -->|useAppSelector| A
-```
-
-**Session restore on refresh**
-
-```mermaid
-flowchart TD
-    A[App loads] --> B{Session in localStorage?}
-    B -- Yes --> C[Restore user into Redux]
-    B -- No --> D[User stays logged out]
-    C --> E[ProtectedRoute renders page]
-    D --> F[Redirect to Login]
-```
-
----
 
 ## 🚦 Routing & Access
 
